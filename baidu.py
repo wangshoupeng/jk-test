@@ -48,4 +48,18 @@ time.sleep(2)
 driver.find_element_by_id('kw').send_keys(Keys.ENTER)
 time.sleep(5)
 driver.quit()
-
+'''
+#对时间控件的处理
+方法一：原生js，移除readonly属性
+js = "document.getElementById('train_date').removeAttribute('readonly')"
+方法二：jQuery，移除readonly属性
+js = "$('input[id=train_date]').removeAttr('readonly')"
+方法三：jQuery，设置属性为false
+js = "$('input[id=train_date]').attr('readonly',false)"
+方法四：jQuery，设置属性为空
+js = "$('input[id=train_date]').attr('readonly',’ ‘)"
+然后，
+driver.execute_script(js)
+driver.find_element_by_id('train_date').clear()
+driver.find_element_by_id('train_date').send_keys('2017-09-30')
+'''
