@@ -258,3 +258,222 @@ for i in list:
 #     for j in range(5):
 #         sheet.write(i,j,list[i][j])#指定行、列、值三项
 # book.save(r'C:\Users\shoupeng.wang\Desktop\images\workplace\练习表.xls')
+
+
+# sd = pd.Series([1,2,3,4])
+# print(sd)
+from socket import *
+#GUI
+#==============================
+
+
+# def size(ev =None):
+#     label.config(font = 'Helvetica %d bold' % scale.get())
+# top = tkinter.Tk()
+#修改窗口的名字有两种方式：
+    #1、top = tkinter.Tk(className='名字')
+    #2、top.title('名字')
+# top.geometry('450x350')
+# top.title('王守鹏')
+# label = tkinter.Label(top,text='王守鹏')
+# label.pack(fill = tkinter.Y,expand = 1)
+# A = tkinter.Scrollbar(top)
+# scale = tkinter.Scale(top,from_=1,to=100,bd= 1,orient=tkinter.HORIZONTAL,tickinterval=10,command =size)
+# scale.set(50)
+# scale.pack(fill = tkinter.X,expand = 1)
+#
+# quit = tkinter.Button(top,text = 'QUIT',command = top.quit,activeforeground = 'white',activebackground = 'red')
+# quit.pack()
+#
+# top.mainloop()
+#==============================
+
+# WARN = 'warn'
+# CRIT = 'crit'
+# REGU = 'regu'
+# SIGNS = {
+#     'railroad crossing':WARN,
+#     'do not enter':CRIT,
+#     '55\nspeed limit':REGU,
+#     'wrong way':CRIT,
+#     'merging traffic':WARN,
+#     'one way':REGU
+# }
+# critCB = lambda :showerror('Error','Error Button Pressed!')
+# warnCB = lambda :showwarning('Warning','Warning Button Pressed!')
+# infoCB = lambda :showinfo('Info','Info Button Pressed!')
+# top =  Tk()
+# top.geometry('400x400')
+# top.title('Road Signs')
+#
+# MyButton = partial(Button,top)
+# CritButton = partial(MyButton,command = critCB,bg = 'white',fg = 'red')
+# WarnButton = partial(MyButton,command = warnCB,bg = 'white',fg = 'red')
+# ReguButton = partial(MyButton,command = infoCB,bg = 'white',fg = 'red')
+# for eachSign in SIGNS:
+#     signType = SIGNS[eachSign]
+#     cmd = '%sButton(text = %r%s).pack(fill = X,expand = 1)' % \
+#           (signType.title(),eachSign,'.upper()'
+#           if signType == CRIT else '.title()')
+#     eval(cmd)
+# Button(top,text = 'QUIT',command = top.quit,bg = 'red',fg = 'white').pack(fill = X)
+# top.mainloop()
+#==========================
+
+# class DirList(object):
+#     def __init__(self,initdir = None):
+#         height = 400
+#         width = 500
+#         self.top = Tk()
+#         # 获取屏幕尺寸以计算布局参数，使窗口居屏幕中央
+#         screenwidth = self.top.winfo_screenwidth()
+#         screenheight = self.top.winfo_screenheight()
+#         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+#         self.top.geometry(alignstr)
+#         self.top.title('目录列表')
+#         # 设置窗口是否可变长、宽，True：可变，False：不可变
+#         self.top.resizable(width=False, height=True)
+#         self.label = Label(self.top,text = 'DirList version1.1',fg = 'red')
+#         self.label.pack()
+#         self.pwd = StringVar(self.top)
+#
+#         self.dirl = Label(self.top,fg = 'blue',font = ('Helvetica 12 bold'))
+#         self.dirl.pack()
+#
+#         self.dirfm = Frame(self.top)
+#         self.dirsb = Scrollbar(self.dirfm)
+#         self.dirsb.pack(side = RIGHT,fill = Y)
+#         #state = 'disabled'/'readonly'/'normal':disabled--将文本置灰不可修改，readonly--不可修改，不置灰，normal--正常输入
+#         #background:文本框的背景颜色，state = disabled/readonly时不显示
+#         #borderwidth:文本框边框颜色亮度
+#         #font = ('字体'，'字号'，'粗细'),字体设置，
+#         #foreground:文本颜色：可以是'red'等也可以是颜色代号，如果是颜色代号时，必须加上'#'
+#         #insertbackground:文本框中光标的颜色
+#         #insertofftime:文本框光标闪烁时，消失持续时间，单位：毫秒
+#         #insertontime：文本框光标闪烁时，显示持续时间，单位：毫秒
+#         #insertwidth:文本框光标宽度
+#         #relief:文本框风格，如凹陷、凸起，值有：flat/sunken/raised/groove/ridge
+#         #selectbackground:选中文字的背景颜色
+#         #selectborderwidth:选中文字的背景边框宽度
+#         #selectforeground:选中文字的颜色
+#         #show:指定文本框内容显示为字符，值随意，满足字符即可。如密码可以将值设为*
+#         #takefocus:是否能用TAB键来获取焦点，默认是可以获得,Type: flag
+#         #textvariable：文本框的值，是一个StringVar()对象
+#         #width：文本框的宽度
+#         #xscrollcommand：回调函数
+#         #方法（Methods）如下：get()
+#         #get()：获取文本框的值
+#         #selection_clear(), select_clear()：清空文本框，示例text.selection_clear()
+#
+#
+#         self.text = Entry(self.top,text = self.pwd,state = 'normal',width = 50,background = 'white',borderwidth = 1,
+#                           font=('Helvetica', '12', 'bold'),foreground = '#ff0000',insertbackground = 'black',
+#                           insertofftime=50,insertontime = 500,insertwidth = 1,relief = 'flat',selectbackground = 'yellow',
+#                           selectborderwidth=0,selectforeground = 'blue')
+#         #文本中插入默认值
+#         self.pwd.set('请输入文本！')
+#         self.text.pack()
+#         self.quit = Button(self.top,text = 'QUIT',command = self.top.quit,activebackground = 'red',fg = 'black')
+#         self.quit.pack(side = BOTTOM)
+#
+# if __name__ == '__main__':
+#     DirList()
+#     mainloop()
+
+
+
+
+# #实际上Entry的属性值可以使用的也为normal/active/disabled,'readonly'与disabled一样
+#
+# '''4.设置为密码输入框
+# #将Entry作为一个密码输入框来使用，即不显示用户输入的内容值，用特定符号代替。使用用属性
+# show来指定。
+
+# from tkinter import *
+# root = Tk()
+# root.geometry('500x500')
+# e = StringVar()
+# entry = Entry(root,textvariable = e,show = '*')
+# e.set('input your text here')
+# entry.pack()
+# #使用*来显示输入的内容，如果喜欢可以改为其它字符
+# entry['show'] = '*'
+# # #分别使用*#$显示输入的文本内容
+# for mask in ['*','#','$']:
+#     e = StringVar()
+#     entry = Entry(root,textvariable = e)
+#     e.set('')
+#     entry.pack(fill = X)
+#     entry['show'] = mask
+#
+# root.mainloop()
+#
+# '''5.验证输入的内容是否符合要求。
+# 使用validate来校验输入的内容
+# 使用validate方法来限制输入的内容
+# 这是一个有问题的例子，无法调用validateText回调函数
+
+# root = Tk()
+# root.geometry('500x500')
+# e = StringVar()
+# def validateText(contents):
+#     print (contents)
+#     return contents.isalnum()
+#
+# entry = Entry(root,validate = 'key',textvariable = e,validatecommand = validateText)
+# entry.pack()
+#
+# root.mainloop()
+# '''
+# 文档中说明使用validate来接受的事件，使用validatecommand来确定输入的内容是否合法，但
+# 如何传入参数？没找到相应的说明
+# '''
+# #还有其他的属性fg/bg/relief/width/height/justify/state使用方法与Button相同，不再举例。
+#
+# #author:     jcodeer
+# #blog:    jcodeer.cublog.cn
+# #email:    jcodeer@126.com
+
+
+# top = Tk()
+# height = 400
+# width = 500
+# winheight = top.winfo_screenheight()
+# winwidth = top.winfo_screenwidth()
+# geometry = '%dx%d+%d+%d' % (width,height,(winwidth-width)/2,(winheight-height)/2)
+# top.geometry(geometry)
+# top.resizable(width=FALSE,height=FALSE)
+# str = StringVar()
+# entry = Entry(top,text = str,state = 'normal')
+# str.set('请输入文本')
+# entry.pack(fill = X)
+# def clr():
+#     str.set('')
+# quit = tkinter.Button(top,text = '退出',command = top.quit)
+# quit.pack(padx = 100,pady = 111)
+# clr = tkinter.Button(top,text = '清空文本框',command = clr)
+# clr.pack(side = BOTTOM)
+#
+#
+# top.mainloop()
+
+# !/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# from tkinter import *
+# from tkinter.messagebox import showwarning,showinfo,showerror
+# import tkinter
+#
+# top = tkinter.Tk()
+# CheckVar1 = IntVar()
+# CheckVar2 = IntVar()
+# C1 = Checkbutton(top, text="RUNOOB", variable=CheckVar1, \
+#                  onvalue=1, offvalue=0, height=5, \
+#                  width=20)
+# C2 = Checkbutton(top, text="GOOGLE", variable=CheckVar2, \
+#                  onvalue=1, offvalue=0, height=5, \
+#                  width=20)
+# C1.pack()
+# C2.pack()
+# top.mainloop()
+
