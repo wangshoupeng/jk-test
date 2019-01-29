@@ -476,4 +476,19 @@ from socket import *
 # C1.pack()
 # C2.pack()
 # top.mainloop()
+sums = 0
+def hello():
+    global sums
+    sums += 1
+    times = (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    f = open(r'C:\Users\wangshoupeng\Desktop\times.txt','a')
+    f.write(times+'\t\t')
+    if sums % 6 == 0:
+        f.write('\n')
+    f.close()
+    update()
+def update():
+    time.sleep(1)
+    hello()
+update()
 

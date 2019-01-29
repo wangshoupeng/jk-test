@@ -47,9 +47,6 @@ class MY_TIME(QWidget):
         self.setAutoFillBackground(True)
         #把颜色设置给顶级窗口
         self.setPalette(self.main_bg)
-
-
-
     def move_center(self):
         #设置矩形
         m_rect = self.frameGeometry()
